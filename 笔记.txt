@@ -1,0 +1,24 @@
+local content=download("http://www.baidu.com",{})
+local list=findListHtml("匹配规则",content);
+lcoal page={}
+for k,v in pairs(list) do
+	item={}
+	item["title"]=findOneText("匹配规则",v);
+	item["href"]=findOneText("匹配规则",v);
+	item["publishtime"]
+	item["publishtime"]com.parseDate(item["publishtime"])
+	page[k]=item
+end
+return page
+
+lcoal content=download(data["href"],{})
+local ret{
+	["sitename"]="标网",
+	["href]=data["href"],
+	["detail"]=findOneText("匹配规则",content)
+	["contenthtml"]=findOneHtml("匹配规则",content)
+	check={1,2,3}
+	com.checkData(chek,ret)
+
+}
+return ret

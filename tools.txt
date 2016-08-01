@@ -1,0 +1,59 @@
+﻿xftp xshell
+ip 123.56.236.148 root/Topnet20160420
+测试服务器
+root top@123
+爬虫监控端增加登录admin/654321
+爬虫服务登录账户密码admin/Topnet1q2w3e
+14测试服务，已更新 admin/654321
+
+原先的json.lua转换变更为调用gopher-json模块,json,lua废弃，调用实例local json = require("json")
+	local obj = {"a",1,"b",2,"c",3}
+	local jsonStr = json.encode(obj)
+	local jsonObj = json.decode(jsonStr)
+
+json.lua如果转换不正确，会吃cpu,以前引用require "res.util.json"--> "json"，请坐同步变更
+
+事物记录
+1.如果爬虫作废，从列表删除爬虫执行test.qmx.top:6888/delSpider/爬虫代码.html
+
+lastcontentid=""
+currentid=""
+--下载分析列表页
+function downloadAndParseListPage(pageno)
+	local page={}		
+	local href="http://www.ahptc.com/Change_"..tostring(pageno)..".html"
+	--print("href:"..href) os.exit()
+	local content = download(href,{})
+	--print(content) os.exit()
+	local list = findListHtml(".list_news li",content)
+	if table.getn(list)<1 then
+		timeSleep(60)--60秒之后再次下载列表
+		return downloadAndParseListPage(pageno)
+	end
+	for k,v in pairs(list) do
+		 if k==1 and pageno==1 then
+		 	currentid=string.gsub("href")
+		 	if lastcontentid=="" then
+				lastcontentid=currentid
+		 	end
+		 	v["exit"]="false"
+		 end	
+		 if lastcontentid==string.gsub("href") then
+		 	lastcontentid==currentid
+		 	v["exit"]="true"
+		 end
+	end
+	local page={}
+	for k,v in pairs(list) do
+		local item={}
+		item["title"]=findOneText("",v)
+		item["href"]=findOneText("",v)
+		item["publishtime"]=findOneText("",v)
+		item["exit"]=v["exit"]
+		table.insert(page,item)
+		if v["exit"]=="true" then
+			return page
+		end
+	end	
+	return page
+end

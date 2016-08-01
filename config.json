@@ -1,0 +1,11 @@
+{
+    "webport": "8080",
+    "mongodbServer": "192.168.3.18:27080",
+    "mongodbName": "spider_peixun",
+    "mongodbSize": 10,
+    "msgserveraddr": "test.qmx.top:7070",
+    "autostartjob": false,
+    "name": "爬虫监控中心_开发",
+    "tesseractadd": "http://test.qmx.top:1688",
+    "testdir": "res/20160721/spider_gd_zhsggzyjyzx.lua"
+} 

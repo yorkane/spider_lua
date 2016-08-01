@@ -1,0 +1,18 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/MyTheme/MyEiffel2.tmTheme",
+	"font_face": "Consolas",
+	"font_size": 12,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"SublimeCodeIntel",
+		"Vintage"
+	],
+	"itg_scrollbar_medium": true,
+	"itg_small_tabs": true,
+	"theme": "itg.flat.light.sublime-theme",
+	"update_check": false,
+	"word_wrap": true
+}
