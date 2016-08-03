@@ -7,5 +7,5 @@
     "autostartjob": false,
     "name": "爬虫监控中心_开发",
     "tesseractadd": "http://test.qmx.top:1688",
-    "testdir": "res/20160721/spider_gd_zhsggzyjyzx.lua"
+    "testdir": "res/20160802/spider_zj_zjzfcg_cgwj.lua"
 } 
